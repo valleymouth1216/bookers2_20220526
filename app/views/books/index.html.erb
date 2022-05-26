@@ -1,0 +1,17 @@
+<h1>Books#index</h1>
+<p>Find me in app/views/books/index.html.erb</p>
+
+<%= render 'current_user' %>
+<%= render 'book', book:@book %>
+
+
+<% @books.each do |book| %>
+<div>
+  <p>title：<%= link_to  book.title,book_path(book.id) %></p>
+  <p>body：<%= book.body %></p>
+  <p>ユーザーネーム：<%= book.user.name %></p>
+  <p><%= image_tag book.user.get_profile_image(100,100) %></p>
+</div>
+<% end %>
+
+
