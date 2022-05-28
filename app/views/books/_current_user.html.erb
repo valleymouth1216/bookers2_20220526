@@ -1,6 +1,20 @@
-<div>
-  <h3>name:<%= current_user.name %></h3>
-  <%= image_tag current_user.get_profile_image(100,100) %>
-  <h3>introduction:<%= current_user.introduction %></h3>
-  <p><%= link_to"edit",edit_user_path(current_user.id) %></p>
-</div>
+<h2>User info</h2>
+  <%= image_tag current_user.get_profile_image(100,100) %><table class="table">
+    <tbody>
+    <tr>
+      <th>name</th>
+      <th><%= current_user.name %></th>
+    </tr>
+    <tr>
+      <th>introduction</th>
+      <th><%= current_user.introduction %></th>
+    </tr>
+  </tbody></table>
+
+  <div class="row">
+   <%= link_to edit_user_path(current_user.id),class:"btn btn-outline-secondary btn-block edit_user_#{current_user.id}" do %>
+    <i class="fas fa-user-cog"></i>
+   <% end %>
+  </div>
+
+
